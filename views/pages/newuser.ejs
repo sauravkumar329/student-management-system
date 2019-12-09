@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/pnotify@4.0.0/dist/umd/PNotify.js"></script>
+  <link href="https://unpkg.com/pnotify@4.0.0/dist/PNotifyBrightTheme.css" rel="stylesheet">
+  <script type="text/javascript" src="/js/pnotify.custom.min.js"></script>
+  <link href="/js/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="container">
+  <h2>Online Student Management System</h2>
+  <form id="sendemail">
+    <div class="form-group">
+            <input type="hidden" id="hostname" name="host"/> 
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email to signup" name="email">
+    </div>
+    <div class="form-group">
+      <label for="sel1">Select Department:</label>
+      <select class="form-control"name="user_type" id="sel1">
+        <option value="Student">Student</option>
+        <option value="Faculty">Faculty</option>
+        <option value="Department">Department</option>
+        
+      </select>
+    </div>
+
+    <!-- <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div> -->
+    <button type="submit" class="btn btn-default">Signup</button>
+  </form>
+</div>
+
+</body>
+<script>
+  
+
+    document.getElementById('hostname').value = window.location.host;
+$('#sendemail').submit(function(e){
+        e.preventDefault();
+        console.log("registration mail");
+        var contactform=($("#sendemail").serialize());
+        console.log("contact form" + contactform)
+        $.post("/send-email", contactform, function(res){
+            console.log(res);
+            if(res.code==1){
+                new PNotify({
+                    type:"success",
+                    title: "Success",
+                    text: res.message
+                });
+                setTimeout(function(){
+                        window.location.href = '/newuser';
+                    }, 2000);
+                }
+                else if(res.code=2) {
+                    new PNotify({
+                type:"error",
+               title: 'Alert',
+               text: res.message
+            });
+            setTimeout(function(){
+                        window.location.href = '/';
+                    }, 2000);
+             
+            }  
+            else{
+                new PNotify({
+                type:"error",
+               title: 'Alert',
+               text: res.message
+
+            }); 
+            }
+        })
+        })
+        </script>
+</html>

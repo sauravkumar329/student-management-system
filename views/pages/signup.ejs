@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/pnotify@4.0.0/dist/umd/PNotify.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+  <h2>Online Student Management System</h2>
+  <form>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" value="<%=email%>"  >
+    </div>
+    <div class="form-group">
+        <label >First Name:</label>
+        <input type="text" class="form-control" id="first_name" placeholder="Enter First Name" name="first_name">
+      </div>
+      <div class="form-group">
+        <label >Last Name:</label>
+        <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="last_name">
+      </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Confirm Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password again" >
+      </div>
+      <div class="form-group">
+        <label for="pwd">DOB</label>
+        <input type="text" class="form-control" id="dob" placeholder="Enter your Date of Birth" >
+      </div>
+      <div class="form-group">
+        <label for="pwd">Phone</label>
+        <input type="number" class="form-control" id="phone" placeholder="Enter your Phone No" >
+      </div>
+      <div class="form-group">
+        <label for="pwd">Department</label>
+        <input type="number" class="form-control" id="Dept" placeholder="Enter your Department" >
+      </div>
+    <!-- <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div> -->
+    <button type="submit" class="btn btn-default">Login</button>
+  </form>
+</div>
+
+</body>
+<script>
+$("#email").prop('disabled', true);</script>
+</html>
