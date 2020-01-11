@@ -9,6 +9,7 @@
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",
     "bcrypt-nodejs": "0.0.3",
+    "firebase-admin": "^8.8.0",
     "fs": "0.0.1-security",
     "grunt": "1.0.4",
     "moment-timezone": "^0.5.27",

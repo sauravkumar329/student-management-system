@@ -29,6 +29,15 @@ process.chdir(__dirname);
 
 
 // Attempt to import `sails` dependency, as well as `rc` (for loading `.sailsrc` files).
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require("assets/accounts.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://fir-aa134.firebaseio.com"
+});
 var sails;
 var rc;
 try {

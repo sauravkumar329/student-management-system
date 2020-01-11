@@ -33,8 +33,9 @@ module.exports.datastores = {
   ***************************************************************************/
 
   default: {
-        adapter: 'sails-mysql',
-        url: 'mysql://kotaeduc_1:Saurav@1996@43.231.127.44:3306/kotaeduc_1'
+    //     adapter: 'sails-mysql',
+    //     // url: 'mysql://kotaeduc_1:Saurav@1996@43.231.127.44:3306/kotaeduc_1'
+    //     // url: "https://s5.iserverplanet.net:2083/cpsess5873996545/3rdparty/phpMyAdmin/db_structure.php?server=1&db=kotaeduc_1"
     // host: '43.231.127.44:3306',
     // user: 'kotaeduc_1', //optional
     // password: 'kotaeduc_1', //optional

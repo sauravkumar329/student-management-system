@@ -1,0 +1,27 @@
+.login_page_logo{
+    width: 25%;
+}
+
+.login_page{
+    background: linear-gradient(90deg,rgba(24, 24, 36, 0),rgba(24, 24, 36, 0)),url('../images/login_bg.jpg');
+    background-size:cover;
+}
+
+#defaultLoginFormEmail::placeholder{
+    color: grey;
+}
+
+#defaultLoginFormPassword::placeholder{
+    color: grey;
+}
+
+p{
+    font-size: 16px;
+}
+
+input{
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    padding: 3px 10px;
+    width: 100%;
+}

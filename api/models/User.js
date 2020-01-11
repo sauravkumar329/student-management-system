@@ -32,16 +32,16 @@ attributes: {
     },
     phone:{
       type: 'String',
-      required: true
+      // required: true
     },
     
     dob:{
       type:"String",
-      required: true
+      // required: true
     },
     user_type:{
       type:"String",
-      required: true
+      // required: true
     },
     
   },

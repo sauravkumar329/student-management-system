@@ -23,6 +23,8 @@ module.exports.routes = {
   'get /newuser': { view: 'pages/newuser' },
   'post /send-email' : 'IndexController.sendEmailToUser',
   'get /usersignup/:session' : 'IndexController.newUser',
+  'post /login': 'IndexController.login',
+  'get /dashboard': 'IndexController.dashboard',
 
 
   /***************************************************************************

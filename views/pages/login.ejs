@@ -8,19 +8,21 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/pnotify@4.0.0/dist/umd/PNotify.js"></script>
+  <script type="text/javascript" src="/js/pnotify.custom.min.js"></script>
+  <link href="/js/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
 <div class="container">
   <h2>Online Student Management System</h2>
-  <form action="/action_page.php">
+  <form id="login">
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <input type="email" class="form-control" id="username" placeholder="Enter email" name="email">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="pwd">
     </div>
     <!-- <div class="checkbox">
       <label><input type="checkbox" name="remember"> Remember me</label>
@@ -30,4 +32,39 @@
 </div>
 
 </body>
+<script>
+  $('#login').submit(function(e){
+e.preventDefault();
+console.log("login");
+var un = $("#username").val();
+var pd = $("#password").val();
+var user = {username:un, password:pd}
+console.log(user)
+$.post("/login", user, function(data) {
+console.log(data);
+if (data.code==0){
+new PNotify({
+type:"error",
+title: 'Alert',
+text: data.message
+});
+}
+else{
+new PNotify({
+type:"success",
+title: 'Success',
+text: "Login Successful"
+});
+setTimeout(function(){
+      window.location.href = '/dashboard';
+  }, 1000);
+}
+
+
+
+})
+
+
+})
+</script>
 </html>

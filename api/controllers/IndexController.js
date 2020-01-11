@@ -120,12 +120,7 @@ login: function(req, res) {
       })(req, res);
     },
 dashboard: function(req, res){
-        console.log("dashboard")
-        
-
-
-        
-    
+        console.log("dashboard"+ req.session.passport)    
         if(req.session.passport) {
             if(req.session.passport.user){
                 console.log(req.session);
@@ -133,18 +128,13 @@ dashboard: function(req, res){
             }
             else{
                 console.log(req.session)
-            res.redirect('/login');
+            res.redirect('/');
             }
-         
-            
-
-        // console.log("dashboard")
-        
-        // res.redirect('dashboard')
         }
         else{
             console.log(req.session)
-            res.redirect('/login');
+        res.redirect('/');
         }
+        
     },
 }

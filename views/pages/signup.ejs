@@ -8,24 +8,26 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/pnotify@4.0.0/dist/umd/PNotify.js"></script>
+  <script type="text/javascript" src="/js/pnotify.custom.min.js"></script>
+  <link href="/js/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
 
 <div class="container">
   <h2>Online Student Management System</h2>
-  <form>
+  <form id="signup">
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" value="<%=email%>"  >
+      <input type="email" class="form-control" name="username" id="username" value="<%=email%>" >
     </div>
     <div class="form-group">
         <label >First Name:</label>
-        <input type="text" class="form-control" id="first_name" placeholder="Enter First Name" name="first_name">
+        <input type="text" class="form-control" id="first_name" placeholder="Enter First Name" name="firstname">
       </div>
       <div class="form-group">
         <label >Last Name:</label>
-        <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="last_name">
+        <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="lastname">
       </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
@@ -35,7 +37,7 @@
         <label for="pwd">Confirm Password:</label>
         <input type="password" class="form-control" id="pwd" placeholder="Enter password again" >
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="pwd">DOB</label>
         <input type="text" class="form-control" id="dob" placeholder="Enter your Date of Birth" >
       </div>
@@ -46,15 +48,42 @@
       <div class="form-group">
         <label for="pwd">Department</label>
         <input type="number" class="form-control" id="Dept" placeholder="Enter your Department" >
-      </div>
+      </div> -->
     <!-- <div class="checkbox">
       <label><input type="checkbox" name="remember"> Remember me</label>
     </div> -->
-    <button type="submit" class="btn btn-default">Login</button>
+    <button type="submit" class="btn btn-default">Signup</button>
   </form>
 </div>
 
 </body>
 <script>
 $("#email").prop('disabled', true);</script>
+<script>
+  $('#signup').submit(function(e){
+e.preventDefault();
+console.log("login");
+var contactform=($("#signup").serialize());
+console.log(contactform)
+$.post("/user", contactform, function(data) {
+console.log(data);
+if (data.code==0){
+new PNotify({
+type:"error",
+title: 'Alert',
+text: data.message
+});
+}
+else{
+new PNotify({
+type:"success",
+title: 'Success',
+text: "Signup successful! Now you will be redirected to login page"
+});
+setTimeout(function(){
+      window.location.href = '/';
+  }, 2000);
+}}
+  )});
+</script>
 </html>
