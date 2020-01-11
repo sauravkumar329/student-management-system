@@ -5,22 +5,9 @@ const moment = require('moment-timezone');
 const validator = require('validator');
 const {sendMail} =require('./../../nodemailer.js');
 var _ = require('lodash');
-// var bcrypt = require('bcryptjs');
 
-// const path = require('path');
-
-// const ejs = require('ejs');
-
-// const config = require('./../../config.js');s
-// var crypto = require('crypto');
-
-// const monk = require('monk');
 var fs = require('fs');
-// var PDFParser = require("pdf2json");
-// const pdf = require('pdf-parse');
-// let dataBuffer = fs.readFileSync('assets/1.pdf');
-// var request = require('request');
-// let dataBuffer = fs.readFileSync('http://www.africau.edu/images/default/sample.pdf');
+
 
 module.exports = {
 
@@ -106,16 +93,12 @@ login: function(req, res) {
     console.log(req.session);
           if(err) res.send(err);
           else{
-            //   res.send({code:10})
+
             res.send({code:1})
             console.log("login else part",req.session)
-            //   res.render('pages/dashboard')
-            //   res.render("pages/dashboard");
+
           }
-        //   return res.render('pages/dashboard',{
-        //     message: info.message,
-        //     user
-        //   });
+
         });
       })(req, res);
     },
