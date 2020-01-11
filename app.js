@@ -32,10 +32,6 @@ process.chdir(__dirname);
 
 
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://fir-aa134.firebaseio.com"
-});
 var sails;
 var rc;
 try {
