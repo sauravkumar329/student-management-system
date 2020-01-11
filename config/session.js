@@ -21,7 +21,7 @@ module.exports.session = {
   secret: 'b9fa6ee1bf4ba2a475a1b0f46c7d218b',
   cookie: {
     maxAge: 10 * 60 * 1000,
-    secure: true
+    secure: false
     
   
   },
